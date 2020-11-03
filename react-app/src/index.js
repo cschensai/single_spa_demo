@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // 引入single-spa-react
-// 注意 Singlespacontext 是一个为react@16.3(如果可用的话)提供的上下文，包含了 singleSpa props
-import singleSpaReact, { SingleSpaContext } from 'single-spa-react';
+import singleSpaReact from 'single-spa-react';
 
 import './index.css';
 import App from './App';
@@ -41,6 +40,15 @@ if (!window.singleSpaNavigate) {
   );
 }
 
-export const bootstrap = reactLifecycles.bootstrap;
-export const mount = reactLifecycles.mount;
-export const unmount = reactLifecycles.unmount;
+export const bootstrap = props => {
+  console.log('react bootstrap', props);
+  return reactLifecycles.bootstrap(() => {});
+}
+export const mount = props => {
+  console.log('react mount', props);
+  return reactLifecycles.mount(() => {});
+}
+export const unmount = props => {
+  console.log('react unmount', props);
+  return reactLifecycles.unmount(() => {});
+}

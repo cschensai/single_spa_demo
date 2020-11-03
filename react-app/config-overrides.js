@@ -7,7 +7,7 @@ module.exports = {
     // 按需加载相关，设置为 webpackJsonp_VueMicroApp 即可
     config.output.jsonpFunction = 'webpackJsonp_reactApp';
     // 设置输入公共路径
-    config.output.publicPath = 'http://localhost:7100/';
+    config.output.publicPath = '//localhost:7100/';
     return config;
   },
 
